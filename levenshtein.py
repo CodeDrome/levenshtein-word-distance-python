@@ -1,16 +1,17 @@
-import math
-
 # ANSI terminal codes for colours
 BLUE = "\x1B[94m"
 RESET = "\x1B[0m"
 
+
 class Levenshtein(object):
+
     """
     Implements the Levenshtein Word Distance Algorithm for calculating
     the minimum number of changes needed to transform one word into another.
     """
 
     def __init__(self):
+
         """
         Just creates costs, and other attributes with default values.
         """
@@ -26,7 +27,9 @@ class Levenshtein(object):
 
         self.minimum_cost = -1
 
+
     def calculate(self):
+
         """
         Creates a grid for the given words and iterates rows and columns,
         calculating missing values.
@@ -51,7 +54,9 @@ class Levenshtein(object):
 
         self.minimum_cost = self.grid[len(self.source_word)][len(self.target_word)]
 
+
     def print_grid(self):
+
         """
         Prints the target and source words and all transformation costs in a grid
         """
@@ -77,10 +82,12 @@ class Levenshtein(object):
 
             print("\n")
 
+
     def print_cost(self):
+
         """
-        This is a separate function to allow printing just the cost if you are not
-        interested in seeing the grid
+        This is a separate function to allow printing just 
+        the cost if you are not interested in seeing the grid
         """
 
         if self.minimum_cost >= 0:
@@ -88,7 +95,9 @@ class Levenshtein(object):
         else:
             print("Costs not yet calculated")
 
+
     def __init_grid(self):
+
         """
         Sets values of first row and first column to 1, 2, 3 etc.
         Other values initialized to 0
